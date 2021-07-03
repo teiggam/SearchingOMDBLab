@@ -1,0 +1,71 @@
+﻿@model List<Movie>
+
+<div style="padding-left: 15%; padding-right: 15%">
+
+    <p>
+        So you're looking to fill up your whole night?  Right on! <br />
+        Give me THREE titles to search below:
+    </p>
+    <form method="post">
+        <p>
+            <input value="Title 1" type="text" name="title" />
+        </p>
+        <p>
+            <input value="Title 2" type="text" name="title2" />
+        </p>
+        <p>
+            <input value="Title 3" type="text" name="title3" />
+        </p>
+
+        <input type="submit" value="Search" />
+    </form><br /><br />
+    <hr /><hr />
+
+
+
+
+    @try
+    {
+
+        @foreach (Movie m in Model)
+        {
+            <div style="padding-left: 10%; padding-right: 10%">
+                <div style="scroll-snap-align:center; border:2px solid double;">
+
+                    <img src="@m.Poster" style="width:250px; height: auto" />
+                </div>
+                    <p> <h2>@m.Title</h2> </p><hr />
+                <small class="text-muted">
+                    <p>
+                        <b>Runtime:</b> @m.Runtime
+                    </p>
+                    <p>
+                        <b> Rated:</b> @m.Rated
+                    </p>
+                    <p>
+                        <b> Genre:</b> @m.Genre
+                    </p>
+                    <p>
+                        <b>Released:</b> @m.Released
+                    </p>
+                    <p>
+                        <b>Starring:</b> @m.Actors
+                    </p>
+                    <p>
+                        <b>Plot:</b> @m.Plot
+                    </p>
+                </small>
+                <br /><br /><br />
+            </div>
+
+            <br />
+            <br />
+        }
+
+    }
+    catch (NullReferenceException)
+    {
+
+    }
+
+</div>

@@ -1,0 +1,60 @@
+﻿@model Movie
+
+<div style="padding-left: 15%; padding-right: 15%; padding-top: 5%">
+
+    <p>
+        <h3>
+            Let's find a movie!<br />
+        </h3>
+        Please enter the title of the movie you'd like to search for:
+    </p>
+    <form method="post">
+        <p>
+            <input value="Enter Title" type="text" name="title" />
+        </p>
+
+        <input type="submit" value="Search" />
+    </form>
+
+</div>
+<br />
+<br />
+<hr />
+<hr />
+@try
+{
+
+    <div class="text-md-center" style="padding-left: 15%; padding-right: 15%">
+        <div style="float: right; margin: 0px 0px 15px 15px; border:2px solid rgb(3, 31, 3);">
+            <img src="@Model.Poster" width="300" />
+        </div>
+    </div>
+    <div style="padding-left: 25%; padding-right: 25%">
+        <p> <h2>@Model.Title</h2> </p><hr />
+        <small class="text-muted">
+            <p>
+                <b>Runtime:</b> @Model.Runtime
+            </p>
+            <p>
+                <b> Rated:</b> @Model.Rated
+            </p>
+            <p>
+                <b> Genre:</b> @Model.Genre
+            </p>
+            <p>
+                <b>Released:</b> @Model.Released
+            </p>
+            <p>
+                <b>Starring:</b> @Model.Actors
+            </p>
+            <p>
+                <b>Plot:</b> @Model.Plot
+            </p>
+        </small>
+
+    </div>
+}
+catch (NullReferenceException)
+{
+
+}
